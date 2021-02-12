@@ -1,4 +1,4 @@
-module github.com/gdcooman/banaanplant
+module github.com/gdcooman/banaanplant-bot
 
 go 1.15
 
