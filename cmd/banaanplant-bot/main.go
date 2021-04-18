@@ -8,35 +8,33 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/gdcooman/banaanplant-bot/pkg/emoji"
-
 	"github.com/bwmarrin/discordgo"
-
+	"github.com/gdcooman/banaanplant-bot/pkg/emoji"
 	"gopkg.in/yaml.v3"
 )
 
-type instanceSecret struct {
+type instanceConfig struct {
 	Token string `yaml:"Token"`
 }
 
-func getSecret() (s instanceSecret, err error) {
-	data, err := ioutil.ReadFile("secret.yml")
+func getConfig() (c instanceConfig, err error) {
+	data, err := ioutil.ReadFile("config.yml")
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = yaml.Unmarshal(data, &s)
+	err = yaml.Unmarshal(data, &c)
 	return
 }
 
 func main() {
-	// get secrets from secret.yml
-	secret, err := getSecret()
+	// get secrets from config.yml
+	config, err := getConfig()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	//Create new Discord session
-	dg, err := discordgo.New("Bot " + secret.Token)
+	dg, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
 		log.Fatal(err)
 		return
