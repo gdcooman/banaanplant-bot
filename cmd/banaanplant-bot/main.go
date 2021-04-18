@@ -63,33 +63,33 @@ func main() {
 	}
 
 	//Migrate and seed DB
-	db.AutoMigrate(&CustomReaction{}, &Emoji{})
-
-	redHeart := Emoji{Name: "Red Heart", Unicode: "\U00002764"}
-	kiNon := Emoji{Name: "KiNon", Unicode: "<:kiNon:810648437904769117>"}
-	pileOfPoo := Emoji{Name: "Pile of Poo", Unicode: "\U0001F4A9"}
-	dragon := Emoji{Name: "Dragon", Unicode: "\U0001F409"}
-	t_rex := Emoji{Name: "T-Rex", Unicode: "\U0001F996"}
-	snake := Emoji{Name: "Snake", Unicode: "\U0001F40D"}
-	partyPopper := Emoji{Name: "Party Popper", Unicode: "\U0001F389"}
-	partyingFace := Emoji{Name: "Partying Face", Unicode: "\U0001F973"}
-
-	db.Create(&redHeart)
-	db.Create(&kiNon)
-	db.Create(&pileOfPoo)
-	db.Create(&dragon)
-	db.Create(&t_rex)
-	db.Create(&snake)
-	db.Create(&partyPopper)
-	db.Create(&partyingFace)
-
-	db.Create(&CustomReaction{Trigger: "https://tenor.com/view/good-morning-vietnam-robin-williams-classic-announcer-radio-gif-4844905", TextReaction: "Goeiemorgen, %author.mention%", EmojiReactions: []Emoji{redHeart}})
-	db.Create(&CustomReaction{Trigger: "no", TextReaction: "no u", EmojiReactions: []Emoji{kiNon}})
-	db.Create(&CustomReaction{Trigger: "Merci <@!814516668389916672>", TextReaction: "Geiren gedoan %author.mention%", EmojiReactions: []Emoji{t_rex}})
-	db.Create(&CustomReaction{Trigger: "Hello there", TextReaction: "https://tenor.com/view/hello-there-general-kenobi-star-wars-grevious-gif-17774326", EmojiReactions: []Emoji{dragon}})
-	db.Create(&CustomReaction{Trigger: "Ayy", TextReaction: "lmao", EmojiReactions: []Emoji{snake}})
-	db.Create(&CustomReaction{Trigger: "Mathias", TextReaction: "mama bankkaart", EmojiReactions: []Emoji{pileOfPoo}})
-	db.Create(&CustomReaction{Trigger: "Tis vrijdag", TextReaction: "IT'S SATURDAY, SUNDAY WHAT??? \n https://www.youtube.com/watch?v=IHC1Ma6EBbE", EmojiReactions: []Emoji{partyPopper, partyingFace}})
+	//db.AutoMigrate(&CustomReaction{}, &Emoji{})
+	//
+	//redHeart := Emoji{Name: "Red Heart", Unicode: "\U00002764"}
+	//kiNon := Emoji{Name: "KiNon", Unicode: "<:kiNon:810648437904769117>"}
+	//pileOfPoo := Emoji{Name: "Pile of Poo", Unicode: "\U0001F4A9"}
+	//dragon := Emoji{Name: "Dragon", Unicode: "\U0001F409"}
+	//t_rex := Emoji{Name: "T-Rex", Unicode: "\U0001F996"}
+	//snake := Emoji{Name: "Snake", Unicode: "\U0001F40D"}
+	//partyPopper := Emoji{Name: "Party Popper", Unicode: "\U0001F389"}
+	//partyingFace := Emoji{Name: "Partying Face", Unicode: "\U0001F973"}
+	//
+	//db.Create(&redHeart)
+	//db.Create(&kiNon)
+	//db.Create(&pileOfPoo)
+	//db.Create(&dragon)
+	//db.Create(&t_rex)
+	//db.Create(&snake)
+	//db.Create(&partyPopper)
+	//db.Create(&partyingFace)
+	//
+	//db.Create(&CustomReaction{Trigger: "https://tenor.com/view/good-morning-vietnam-robin-williams-classic-announcer-radio-gif-4844905", TextReaction: "Goeiemorgen, %author.mention%", EmojiReactions: []Emoji{redHeart}})
+	//db.Create(&CustomReaction{Trigger: "no", TextReaction: "no u", EmojiReactions: []Emoji{kiNon}})
+	//db.Create(&CustomReaction{Trigger: "Merci <@!809761796344512514>", TextReaction: "Geiren gedoan %author.mention%", EmojiReactions: []Emoji{t_rex}})
+	//db.Create(&CustomReaction{Trigger: "Hello there", TextReaction: "https://tenor.com/view/hello-there-general-kenobi-star-wars-grevious-gif-17774326", EmojiReactions: []Emoji{dragon}})
+	//db.Create(&CustomReaction{Trigger: "Ayy", TextReaction: "lmao", EmojiReactions: []Emoji{snake}})
+	//db.Create(&CustomReaction{Trigger: "Mathias", TextReaction: "mama bankkaart", EmojiReactions: []Emoji{pileOfPoo}})
+	//db.Create(&CustomReaction{Trigger: "Tis vrijdag", TextReaction: "IT'S SATURDAY, SUNDAY WHAT??? \n https://www.youtube.com/watch?v=IHC1Ma6EBbE", EmojiReactions: []Emoji{partyPopper, partyingFace}})
 
 	//Create new Discord session
 	dg, err := discordgo.New("Bot " + config.Token)
