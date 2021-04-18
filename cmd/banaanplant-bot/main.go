@@ -134,7 +134,6 @@ func messageCreate(session *discordgo.Session, message *discordgo.MessageCreate)
 
 	var possibleReactions []CustomReaction
 	db.Where("trigger ~* ?", searchStr).Find(&possibleReactions)
-	log.Println(possibleReactions)
 
 	for _, reac := range possibleReactions {
 		if strings.Contains(strings.ToLower(message.Content), strings.ToLower(reac.Trigger)) {
