@@ -8,7 +8,6 @@ import (
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/gdcooman/banaanplant-bot/internal/database"
 	"github.com/gdcooman/banaanplant-bot/internal/eventHandlers"
 	"github.com/gdcooman/banaanplant-bot/internal/instanceConfig"
 	"gorm.io/driver/postgres"
@@ -28,7 +27,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	database.Seed(db)
+	//database.Seed(db)
 
 	//Create new Discord session
 	dg, err := discordgo.New("Bot " + config.Token)
