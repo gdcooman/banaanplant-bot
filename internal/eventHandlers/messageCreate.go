@@ -34,7 +34,7 @@ func (h *MessageCreateHandler) Handler(session *discordgo.Session, message *disc
 	}
 
 	var reaction models.CustomReaction
-	result := h.db.Where("? ILIKE '%' || trigger || '%'", message.Content).Order("length(trigger) desc").Limit(1).Find(&reaction)
+	result := h.db.Where("? ~* ('(\\W+|^)' || trigger || '(\\W+|$)')", message.Content).Order("length(trigger) desc").Limit(1).Find(&reaction)
 
 	if result.RowsAffected == 1 {
 		log.Println(fmt.Sprintf("Triggered reaction with ID: %d and trigger: %s", reaction.ID, reaction.Trigger))
